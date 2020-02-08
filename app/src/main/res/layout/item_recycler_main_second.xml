@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:weightSum="10"
+    android:maxHeight="200dp"
+    android:layout_margin="5dp"
+    android:background="@color/yellwo"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+    <ImageView
+        android:id="@+id/AdImage"
+        android:background="@color/yellwo"
+        android:layout_weight="6"
+        android:src="@drawable/onion"
+        android:padding="10dp"
+        android:maxHeight="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ImageView>
+
+    <TextView
+        android:textSize="20dp"
+        android:gravity="center"
+        android:textAlignment="textStart"
+        android:layout_gravity="center"
+        android:text="3 KG onion \n 25 EGP"
+        android:id="@+id/AdDescription"
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="RtlCompat"
+        >
+
+    </TextView>
+
+</LinearLayout>
