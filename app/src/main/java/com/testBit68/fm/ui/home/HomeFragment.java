@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 
+import com.testBit68.fm.MainActivity;
 import com.testBit68.fm.Models.CategoriesModel;
 import com.testBit68.fm.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -41,6 +43,8 @@ public class HomeFragment extends Fragment {
         if (container != null) {
             container.removeAllViews();
         }
+        ((MainActivity)getActivity()).getSupportActionBar().setTitle("Home");
+
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);

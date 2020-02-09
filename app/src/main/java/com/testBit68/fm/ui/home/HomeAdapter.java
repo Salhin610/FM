@@ -92,23 +92,26 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         SubCategoryFragment fragment=new SubCategoryFragment();
 
                         Bundle bundle=new Bundle();
+                        int x=position+1;
+                        if (position%3==2){
+                            x=position-1;
+                        }
                         bundle.putString("first_name",list.get(position).getCategoryName());
-                        bundle.putString("second_name",list.get(position).getCategoryName());
-
-
+                        bundle.putString("second_name",list.get(x).getCategoryName());
+                        bundle.putString("CategoryImage1",list.get(x).getCategoryImage());
+                        bundle.putString("CategoryImage",list.get(position).getCategoryImage());
+                        bundle.putInt("length",list.get(position).getProductDetailsModelList().size());
+                        bundle.putInt("length0",list.get(x).getProductDetailsModelList().size());
                         for (int i=0;i<list.get(position).getProductDetailsModelList().size();i++){
+//                            Log.e("name",list.get(position).getProductDetailsModelList().get(i).getCategoryName()+"");
                             bundle.putString("image"+i,list.get(position).getProductDetailsModelList().get(i).getCategoryImage());
                             bundle.putString("Name"+i,list.get(position).getProductDetailsModelList().get(i).getCategoryName());
                             bundle.putString("Price"+i,list.get(position).getProductDetailsModelList().get(i).getPrice());
                             bundle.putString("Weight"+i,list.get(position).getProductDetailsModelList().get(i).getWeight());
 
                         }
-                        int x=position+1;
-                        if (position%3==2){
-                            x=position-1;
-                        }
-
                         for (int j=0;j<list.get(x).getProductDetailsModelList().size();j++){
+//                            Log.e("name",list.get(x).getProductDetailsModelList().get(j).getCategoryName()+"");
 
                             bundle.putString("image0"+j,list.get(x).getProductDetailsModelList().get(j).getCategoryImage());
                             bundle.putString("Name0"+j,list.get(x).getProductDetailsModelList().get(j).getCategoryName());
@@ -116,8 +119,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                             bundle.putString("Weight0"+j,list.get(x).getProductDetailsModelList().get(j).getWeight());
 
                         }
-                        bundle.putInt("length",list.get(position).getProductDetailsModelList().size());
-                        bundle.putInt("length0",list.get(x).getProductDetailsModelList().size());
+
                         fragment.setArguments(bundle);
                         FragmentManager fragmentManager=activity.getSupportFragmentManager();
                         fragmentManager.beginTransaction().replace(R.id.nav_host_fragment,fragment).commit();

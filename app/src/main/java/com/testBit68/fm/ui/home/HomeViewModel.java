@@ -42,7 +42,8 @@ public class HomeViewModel extends ViewModel {
 
         Call<List<CategoriesModel>> call = apiInterface.GetCategories();
          final List<CategoriesModel> categoriesModel=new ArrayList<>();
-        final List<ProductDetailsModel> productDetailsModelList=new ArrayList<>();
+        final List<ProductDetailsModel>[] productDetailsModelList = new List[]{new ArrayList<>()};
+        CategoriesMutableLiveData.setValue(categoriesModel);
         call.enqueue(new Callback<List<CategoriesModel>>() {
             @Override
             public void onResponse(Call<List<CategoriesModel>> call, Response<List<CategoriesModel>> response) {
@@ -66,24 +67,23 @@ public class HomeViewModel extends ViewModel {
                                 i--;
                                 AdFlag=false;
                             }
-//                            Log.e("id no " + "i ", response.body().get(x).getCategoryId() + "");
                             categoriesModel1.setCategoryId(response.body().get(x).getCategoryId());
                             categoriesModel1.setCategoryName(response.body().get(x).getCategoryName());
                             categoriesModel1.setCategoryImage(response.body().get(x).getCategoryImage());
-                            productDetailsModelList.clear();
-//                            Log.e("llllll",response.body().get(x).getProductDetailsModelList().size()+"");
+                            productDetailsModelList[0] =new ArrayList<>();
                             for (int j=0;j<response.body().get(x).getProductDetailsModelList().size();j++){
                             ProductDetailsModel productDetailsModel=new ProductDetailsModel();
                             productDetailsModel.setCategoryId(response.body().get(x).getProductDetailsModelList().get(j).getCategoryId());
                                 productDetailsModel.setCategoryName(response.body().get(x).getProductDetailsModelList().get(j).getCategoryName());
+//                                Log.e("sssss",response.body().get(x).getProductDetailsModelList().get(j).getCategoryName());
                                 productDetailsModel.setWeight(response.body().get(x).getProductDetailsModelList().get(j).getWeight());
                                 productDetailsModel.setPrice(response.body().get(x).getProductDetailsModelList().get(j).getPrice());
                                 productDetailsModel.setCategoryImage(response.body().get(x).getProductDetailsModelList().get(j).getCategoryImage());
 
 
-                                productDetailsModelList.add(productDetailsModel);
+                                productDetailsModelList[0].add(productDetailsModel);
                             }
-                            categoriesModel1.setProductDetailsModelList(productDetailsModelList);
+                            categoriesModel1.setProductDetailsModelList(productDetailsModelList[0]);
                             categoriesModel.add(categoriesModel1);
                         }
                     }

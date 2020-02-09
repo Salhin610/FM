@@ -2,6 +2,7 @@ package com.testBit68.fm.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriesModel {
@@ -47,4 +48,13 @@ public class CategoriesModel {
     public void setCategoryImage(String categoryImage) {
         CategoryImage = categoryImage;
     }
+    public static String firstSub="";
+    public static String secondSub;
+    public static String SelectedSecondSub="";
+    public static String CatImage;
+    public static String CatImage0;
+
+    public static List<ProductDetailsModel>firstlist=new ArrayList<>();
+    public static List<ProductDetailsModel>secondlist=new ArrayList<>();
+
 }
