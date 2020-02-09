@@ -78,13 +78,10 @@ public class SplashScreen extends AppCompatActivity {
             {
                 Intent i=new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(i);
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-//                    getApplicationContext().finishAffinity();
-//                }else {
-//                    this.finish();
-//                }
-            }
+                    finish();
+}
         }
+
     };
 
 }

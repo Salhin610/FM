@@ -7,17 +7,16 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <androidx.slidingpanelayout.widget.SlidingPaneLayout
-        android:id="@+id/slidingPaneLayout"
+    <com.daimajia.slider.library.SliderLayout
+        android:id="@+id/slider"
 
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.slidingpanelayout.widget.SlidingPaneLayout>
+    </com.daimajia.slider.library.SliderLayout>
 
 
     <ScrollView
